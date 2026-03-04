@@ -886,3 +886,78 @@ tbody tr:hover {
 .pos-quick-access .btn:hover {
   background: var(--primary-dark);
 }
+
+:root {
+  /* Color principal extraído del logo (Naranja Energía) */
+  --primary: #FF6B2B;
+  --primary-dark: #E65100;
+  --primary-alpha: rgba(255, 107, 43, 0.1);
+  --primary-alpha-strong: rgba(255, 107, 43, 0.2);
+  
+  /* Colores de estado (Ajustados para contrastar con naranja) */
+  --success: #00C853;
+  --success-alpha: rgba(0, 200, 83, 0.1);
+  --danger: #FF3D00;
+  --info: #00B0FF;
+  --warning: #FFD600;
+  
+  /* Escala de grises basada en el negro profundo del fondo V2 */
+  --dark: #0A0A0A;       /* Fondo negro sólido del logo */
+  --dark-2: #121212;     /* Sidebar */
+  --dark-3: #1C1C1C;     /* Hovers */
+  --dark-4: #262626;     /* Bordes oscuros */
+  --dark-5: #333333;     /* Inputs */
+  
+  /* Escala de grises claros */
+  --gray-1: #666666;
+  --gray-2: #919191;
+  --gray-3: #BDBDBD;
+  --gray-4: #E0E0E0;
+  --gray-5: #F5F5F5;     /* Fondo de la aplicación */
+  
+  --white: #FFFFFF;
+  
+  /* Layout y constantes */
+  --sidebar-width: 280px;
+  --header-height: 70px;
+  --border-radius: 12px;
+  --border-radius-sm: 8px;
+  
+  /* Sombras con matiz cálido */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 16px rgba(255, 107, 43, 0.1);
+  --shadow-lg: 0 8px 32px rgba(255, 107, 43, 0.15);
+  --transition: all 0.2s ease;
+}
+
+/* Botón con el gradiente cálido del logo */
+.btn-primary {
+  background: linear-gradient(135deg, #FF8C5A, var(--primary));
+  color: white;
+  box-shadow: 0 4px 14px rgba(255, 107, 43, 0.4);
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(255, 107, 43, 0.5);
+}
+
+/* Barra de progreso "fuego" */
+.progress-bar {
+  background: linear-gradient(90deg, var(--primary), #FFB74D);
+}
+
+/* Sidebar para la versión oscura */
+.sidebar {
+  background: var(--dark); /* Negro total como el fondo del logo */
+  border-right: 1px solid var(--dark-4);
+}
+
+/* Estilo para los ítems activos en el menú */
+.nav-item.active {
+  background: rgba(255, 107, 43, 0.15);
+  color: var(--primary);
+  border-left-color: var(--primary);
+}
+

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PANDORA ERP - Administrador</title>
+  <title>TechCorp · PANDORA ERP</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -14,159 +14,329 @@
     <!-- SIDEBAR -->
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-brand">
-        <div class="brand-text">
-          <div class="brand-name">PANDORA</div>
-          <div class="brand-sub">Administrador</div>
-        </div>
+        <img src="../assets/PANDORA_LOGOVF.png" alt="PANDORA" class="brand-logo">
         <div class="sidebar-collapse" id="sidebar-collapse">
           <i class="fas fa-chevron-left" id="collapse-icon"></i>
         </div>
       </div>
-      
-      <div class="company-info" id="company-info">
-        <div class="company-label">
-          <i class="fas fa-building"></i> Mi Empresa
-        </div>
-        <div class="company-name" id="active-company">TechCorp S.A.</div>
-        <div class="company-ruc">RUC: 1791234567001</div>
-      </div>
-      
-      <div class="role-chip">
-        <span class="role-icon">🏢</span>
-        <span class="role-name">ADMINISTRADOR</span>
-      </div>
+
+      <!-- NOMBRE DE LA EMPRESA (TECHCORP) -->
+      <div class="company-name-sidebar" id="sidebar-company">TechCorp S.A.</div>
       
       <nav class="sidebar-nav" id="sidebar-nav">
-        <!-- GENERAL -->
-        <div class="nav-section-title">📊 GENERAL</div>
-        <div class="nav-item active" onclick="showSection('dashboard')">
-          <i class="fas fa-chart-pie nav-icon"></i>
-          <span class="nav-label">Dashboard</span>
+        <!-- DASHBOARD -->
+        <div class="nav-section">
+          <div class="nav-section-title" onclick="toggleSection('dashboard-section')">
+            <i class="fas fa-chart-pie"></i> DASHBOARD
+            <i class="fas fa-chevron-down section-arrow" id="arrow-dashboard-section"></i>
+          </div>
+          <div class="nav-subsection" id="section-dashboard-section">
+            <div class="nav-item active" onclick="showSection('dashboard')">
+              <i class="fas fa-chart-line nav-icon"></i>
+              <span class="nav-label">Dashboard Empresarial</span>
+            </div>
+          </div>
         </div>
 
-        <!-- FACTURACIÓN -->
-        <div class="nav-section-title">🧾 FACTURACIÓN</div>
-        <div class="nav-item" onclick="showSection('facturacion')">
-          <i class="fas fa-file-invoice nav-icon"></i>
-          <span class="nav-label">Facturación</span>
+        <!-- FACTURACIÓN SRI -->
+        <div class="nav-section">
+          <div class="nav-section-title" onclick="toggleSection('facturacion')">
+            <i class="fas fa-file-invoice"></i> FACTURACIÓN SRI
+            <i class="fas fa-chevron-down section-arrow" id="arrow-facturacion"></i>
+          </div>
+          <div class="nav-subsection" id="section-facturacion">
+            <div class="nav-item" onclick="showSection('facturas-venta')">
+              <i class="fas fa-file-invoice nav-icon"></i>
+              <span class="nav-label">Facturas Venta</span>
+            </div>
+            <div class="nav-item" onclick="showSection('notas-credito')">
+              <i class="fas fa-file-invoice nav-icon"></i>
+              <span class="nav-label">Notas Crédito</span>
+            </div>
+            <div class="nav-item" onclick="showSection('notas-debito')">
+              <i class="fas fa-file-invoice nav-icon"></i>
+              <span class="nav-label">Notas Débito</span>
+            </div>
+            <div class="nav-item" onclick="showSection('retenciones')">
+              <i class="fas fa-receipt nav-icon"></i>
+              <span class="nav-label">Retenciones</span>
+            </div>
+            <div class="nav-item" onclick="showSection('guias-remision')">
+              <i class="fas fa-truck nav-icon"></i>
+              <span class="nav-label">Guías Remisión</span>
+            </div>
+          </div>
         </div>
-        <div class="nav-item" onclick="showSection('clientes')">
-          <i class="fas fa-user nav-icon"></i>
-          <span class="nav-label">Clientes</span>
-          <span class="nav-badge">4</span>
-        </div>
-        <div class="nav-item" onclick="showSection('productos')">
-          <i class="fas fa-box nav-icon"></i>
-          <span class="nav-label">Productos</span>
-          <span class="nav-badge">3</span>
-        </div>
-        <div class="nav-item" onclick="showSection('cotizaciones')">
-          <i class="fas fa-file-signature nav-icon"></i>
-          <span class="nav-label">Cotizaciones</span>
-        </div>
-        <div class="nav-item" onclick="showSection('notas-credito')">
-          <i class="fas fa-file-circle-minus nav-icon"></i>
-          <span class="nav-label">Notas Crédito</span>
+
+        <!-- DATOS MAESTROS -->
+        <div class="nav-section">
+          <div class="nav-section-title" onclick="toggleSection('datos-maestros')">
+            <i class="fas fa-database"></i> DATOS MAESTROS
+            <i class="fas fa-chevron-down section-arrow" id="arrow-datos-maestros"></i>
+          </div>
+          <div class="nav-subsection" id="section-datos-maestros">
+            <div class="nav-item" onclick="showSection('personas')">
+              <i class="fas fa-user nav-icon"></i>
+              <span class="nav-label">Personas</span>
+            </div>
+            <div class="nav-item" onclick="showSection('clientes')">
+              <i class="fas fa-handshake nav-icon"></i>
+              <span class="nav-label">Clientes</span>
+            </div>
+            <div class="nav-item" onclick="showSection('proveedores')">
+              <i class="fas fa-truck nav-icon"></i>
+              <span class="nav-label">Proveedores</span>
+            </div>
+            <div class="nav-item" onclick="showSection('productos')">
+              <i class="fas fa-box nav-icon"></i>
+              <span class="nav-label">Productos / Servicios</span>
+            </div>
+            <div class="nav-item" onclick="showSection('categorias')">
+              <i class="fas fa-tags nav-icon"></i>
+              <span class="nav-label">Categorías</span>
+              <span class="nav-badge dev">DEV</span>
+            </div>
+          </div>
         </div>
 
         <!-- CONTABILIDAD -->
-        <div class="nav-section-title">📒 CONTABILIDAD</div>
-        <div class="nav-item" onclick="showSection('balance')">
-          <i class="fas fa-scale-balanced nav-icon"></i>
-          <span class="nav-label">Balance General</span>
-        </div>
-        <div class="nav-item" onclick="showSection('asientos')">
-          <i class="fas fa-pen-to-square nav-icon"></i>
-          <span class="nav-label">Asientos Contables</span>
-        </div>
-        <div class="nav-item" onclick="showSection('plan-cuentas')">
-          <i class="fas fa-book nav-icon"></i>
-          <span class="nav-label">Plan de Cuentas</span>
-        </div>
-        <div class="nav-item" onclick="showSection('reportes')">
-          <i class="fas fa-chart-simple nav-icon"></i>
-          <span class="nav-label">Reportes</span>
+        <div class="nav-section">
+          <div class="nav-section-title" onclick="toggleSection('contabilidad')">
+            <i class="fas fa-book"></i> CONTABILIDAD
+            <i class="fas fa-chevron-down section-arrow" id="arrow-contabilidad"></i>
+          </div>
+          <div class="nav-subsection" id="section-contabilidad">
+            <div class="nav-item" onclick="showSection('plan-cuentas')">
+              <i class="fas fa-book nav-icon"></i>
+              <span class="nav-label">Plan de Cuentas</span>
+            </div>
+            <div class="nav-item" onclick="showSection('asientos')">
+              <i class="fas fa-pen-to-square nav-icon"></i>
+              <span class="nav-label">Asientos Contables</span>
+            </div>
+            <div class="nav-item" onclick="showSection('centros-costo')">
+              <i class="fas fa-diagram-project nav-icon"></i>
+              <span class="nav-label">Centros de Costo</span>
+            </div>
+            <div class="nav-item" onclick="showSection('proyectos')">
+              <i class="fas fa-chart-line nav-icon"></i>
+              <span class="nav-label">Proyectos</span>
+              <span class="nav-badge dev">DEV</span>
+            </div>
+            <div class="nav-item" onclick="showSection('periodos-contables')">
+              <i class="fas fa-calendar-alt nav-icon"></i>
+              <span class="nav-label">Periodos Contables</span>
+            </div>
+          </div>
         </div>
 
-        <!-- RRHH -->
-        <div class="nav-section-title">👥 RRHH</div>
-        <div class="nav-item" onclick="showSection('empleados')">
-          <i class="fas fa-users nav-icon"></i>
-          <span class="nav-label">Empleados</span>
-          <span class="nav-badge">2</span>
-        </div>
-        <div class="nav-item" onclick="showSection('nominas')">
-          <i class="fas fa-money-bill nav-icon"></i>
-          <span class="nav-label">Nóminas</span>
-        </div>
-        <div class="nav-item" onclick="showSection('prestamos')">
-          <i class="fas fa-hand-holding-dollar nav-icon"></i>
-          <span class="nav-label">Préstamos</span>
+        <!-- REPORTES FINANCIEROS -->
+        <div class="nav-section">
+          <div class="nav-section-title" onclick="toggleSection('reportes')">
+            <i class="fas fa-chart-line"></i> REPORTES FINANCIEROS
+            <i class="fas fa-chevron-down section-arrow" id="arrow-reportes"></i>
+          </div>
+          <div class="nav-subsection" id="section-reportes">
+            <div class="nav-item" onclick="showSection('balance-general')">
+              <i class="fas fa-scale-balanced nav-icon"></i>
+              <span class="nav-label">Balance General</span>
+            </div>
+            <div class="nav-item" onclick="showSection('estado-resultados')">
+              <i class="fas fa-chart-simple nav-icon"></i>
+              <span class="nav-label">Estado Resultados</span>
+            </div>
+            <div class="nav-item" onclick="showSection('libro-mayor')">
+              <i class="fas fa-book-open nav-icon"></i>
+              <span class="nav-label">Libro Mayor</span>
+            </div>
+            <div class="nav-item" onclick="showSection('flujo-efectivo')">
+              <i class="fas fa-money-bill-trend-up nav-icon"></i>
+              <span class="nav-label">Flujo Efectivo</span>
+              <span class="nav-badge dev">DEV</span>
+            </div>
+          </div>
         </div>
 
         <!-- TESORERÍA -->
-        <div class="nav-section-title">💰 TESORERÍA</div>
-        <div class="nav-item" onclick="showSection('bancos')">
-          <i class="fas fa-building-columns nav-icon"></i>
-          <span class="nav-label">Bancos</span>
-        </div>
-        <div class="nav-item" onclick="showSection('cxc')">
-          <i class="fas fa-arrow-right-to-bracket nav-icon"></i>
-          <span class="nav-label">C x Cobrar</span>
-        </div>
-        <div class="nav-item" onclick="showSection('cxp')">
-          <i class="fas fa-arrow-left-from-bracket nav-icon"></i>
-          <span class="nav-label">C x Pagar</span>
-        </div>
-        <div class="nav-item" onclick="showSection('conciliacion')">
-          <i class="fas fa-rotate nav-icon"></i>
-          <span class="nav-label">Conciliación</span>
+        <div class="nav-section">
+          <div class="nav-section-title" onclick="toggleSection('tesoreria')">
+            <i class="fas fa-coins"></i> TESORERÍA
+            <i class="fas fa-chevron-down section-arrow" id="arrow-tesoreria"></i>
+          </div>
+          <div class="nav-subsection" id="section-tesoreria">
+            <div class="nav-item" onclick="showSection('bancos')">
+              <i class="fas fa-building-columns nav-icon"></i>
+              <span class="nav-label">Bancos</span>
+            </div>
+            <div class="nav-item" onclick="showSection('cuentas-bancarias')">
+              <i class="fas fa-credit-card nav-icon"></i>
+              <span class="nav-label">Cuentas Bancarias</span>
+            </div>
+            <div class="nav-item" onclick="showSection('cajas')">
+              <i class="fas fa-cash-register nav-icon"></i>
+              <span class="nav-label">Cajas</span>
+            </div>
+            <div class="nav-item" onclick="showSection('cxc')">
+              <i class="fas fa-arrow-right-to-bracket nav-icon"></i>
+              <span class="nav-label">Cuentas x Cobrar</span>
+            </div>
+            <div class="nav-item" onclick="showSection('cxp')">
+              <i class="fas fa-arrow-left-from-bracket nav-icon"></i>
+              <span class="nav-label">Cuentas x Pagar</span>
+            </div>
+            <div class="nav-item" onclick="showSection('cobros')">
+              <i class="fas fa-hand-holding-dollar nav-icon"></i>
+              <span class="nav-label">Cobros</span>
+            </div>
+            <div class="nav-item" onclick="showSection('pagos')">
+              <i class="fas fa-money-bill-transfer nav-icon"></i>
+              <span class="nav-label">Pagos</span>
+            </div>
+            <div class="nav-item" onclick="showSection('conciliaciones')">
+              <i class="fas fa-handshake nav-icon"></i>
+              <span class="nav-label">Conciliaciones</span>
+              <span class="nav-badge dev">DEV</span>
+            </div>
+          </div>
         </div>
 
         <!-- INVENTARIO -->
-        <div class="nav-section-title">📦 INVENTARIO</div>
-        <div class="nav-item" onclick="showSection('stock')">
-          <i class="fas fa-cubes nav-icon"></i>
-          <span class="nav-label">Stock</span>
-        </div>
-        <div class="nav-item" onclick="showSection('kardex')">
-          <i class="fas fa-table nav-icon"></i>
-          <span class="nav-label">Kardex</span>
-        </div>
-        <div class="nav-item" onclick="showSection('activos-fijos')">
-          <i class="fas fa-truck nav-icon"></i>
-          <span class="nav-label">Activos Fijos</span>
-        </div>
-
-        <!-- CONFIGURACIÓN -->
-        <div class="nav-section-title">⚙️ CONFIGURACIÓN</div>
-        <div class="nav-item" onclick="showSection('sri-config')">
-          <i class="fas fa-gear nav-icon"></i>
-          <span class="nav-label">Config. SRI</span>
-        </div>
-        <div class="nav-item" onclick="showSection('establecimientos')">
-          <i class="fas fa-store nav-icon"></i>
-          <span class="nav-label">Establecimientos</span>
-        </div>
-        <div class="nav-item" onclick="showSection('usuarios')">
-          <i class="fas fa-user-gear nav-icon"></i>
-          <span class="nav-label">Usuarios</span>
-        </div>
-        <div class="nav-item" onclick="showSection('mi-perfil')">
-          <i class="fas fa-id-card nav-icon"></i>
-          <span class="nav-label">Mi Perfil</span>
-        </div>
-      </nav>
-      
-      <div class="sidebar-footer">
-        <div class="user-info" onclick="showSection('mi-perfil')">
-          <div class="user-avatar" id="user-avatar">CG</div>
-          <div class="user-details">
-            <div class="user-name" id="user-name">Carlos Gómez</div>
-            <div class="user-role" id="user-role">TechCorp · Admin</div>
+        <div class="nav-section">
+          <div class="nav-section-title" onclick="toggleSection('inventario')">
+            <i class="fas fa-warehouse"></i> INVENTARIO
+            <i class="fas fa-chevron-down section-arrow" id="arrow-inventario"></i>
+          </div>
+          <div class="nav-subsection" id="section-inventario">
+            <div class="nav-item" onclick="showSection('bodegas')">
+              <i class="fas fa-warehouse nav-icon"></i>
+              <span class="nav-label">Bodegas</span>
+              <span class="nav-badge dev">DEV</span>
+            </div>
+            <div class="nav-item" onclick="showSection('kardex')">
+              <i class="fas fa-chart-simple nav-icon"></i>
+              <span class="nav-label">Kardex</span>
+              <span class="nav-badge dev">DEV</span>
+            </div>
+            <div class="nav-item" onclick="showSection('movimientos-inventario')">
+              <i class="fas fa-arrows-spin nav-icon"></i>
+              <span class="nav-label">Movimientos</span>
+              <span class="nav-badge dev">DEV</span>
+            </div>
           </div>
         </div>
-      </div>
+
+        <!-- ACTIVOS FIJOS -->
+        <div class="nav-section">
+          <div class="nav-section-title" onclick="toggleSection('activos')">
+            <i class="fas fa-truck"></i> ACTIVOS FIJOS
+            <i class="fas fa-chevron-down section-arrow" id="arrow-activos"></i>
+          </div>
+          <div class="nav-subsection" id="section-activos">
+            <div class="nav-item" onclick="showSection('activos-fijos')">
+              <i class="fas fa-truck nav-icon"></i>
+              <span class="nav-label">Activos Fijos</span>
+              <span class="nav-badge dev">DEV</span>
+            </div>
+            <div class="nav-item" onclick="showSection('depreciaciones')">
+              <i class="fas fa-chart-line nav-icon"></i>
+              <span class="nav-label">Depreciaciones</span>
+              <span class="nav-badge dev">DEV</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RRHH -->
+        <div class="nav-section">
+          <div class="nav-section-title" onclick="toggleSection('rrhh')">
+            <i class="fas fa-users"></i> RECURSOS HUMANOS
+            <i class="fas fa-chevron-down section-arrow" id="arrow-rrhh"></i>
+          </div>
+          <div class="nav-subsection" id="section-rrhh">
+            <div class="nav-item" onclick="showSection('empleados')">
+              <i class="fas fa-id-card nav-icon"></i>
+              <span class="nav-label">Empleados</span>
+              <span class="nav-badge dev">DEV</span>
+            </div>
+            <div class="nav-item" onclick="showSection('nominas')">
+              <i class="fas fa-money-bill nav-icon"></i>
+              <span class="nav-label">Nóminas</span>
+              <span class="nav-badge dev">DEV</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CRM / PREVENTA -->
+        <div class="nav-section">
+          <div class="nav-section-title" onclick="toggleSection('crm')">
+            <i class="fas fa-handshake"></i> CRM / PREVENTA
+            <i class="fas fa-chevron-down section-arrow" id="arrow-crm"></i>
+          </div>
+          <div class="nav-subsection" id="section-crm">
+            <div class="nav-item" onclick="showSection('cotizaciones')">
+              <i class="fas fa-file-signature nav-icon"></i>
+              <span class="nav-label">Cotizaciones</span>
+              <span class="nav-badge dev">DEV</span>
+            </div>
+            <div class="nav-item" onclick="showSection('proformas')">
+              <i class="fas fa-file-invoice nav-icon"></i>
+              <span class="nav-label">Proformas</span>
+              <span class="nav-badge dev">DEV</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ESTRUCTURA EMPRESA -->
+        <div class="nav-section">
+          <div class="nav-section-title" onclick="toggleSection('estructura')">
+            <i class="fas fa-sitemap"></i> ESTRUCTURA EMPRESA
+            <i class="fas fa-chevron-down section-arrow" id="arrow-estructura"></i>
+          </div>
+          <div class="nav-subsection" id="section-estructura">
+            <div class="nav-item" onclick="showSection('establecimientos')">
+              <i class="fas fa-store nav-icon"></i>
+              <span class="nav-label">Establecimientos</span>
+            </div>
+            <div class="nav-item" onclick="showSection('puntos-emision')">
+              <i class="fas fa-location-dot nav-icon"></i>
+              <span class="nav-label">Puntos Emisión</span>
+            </div>
+            <div class="nav-item" onclick="showSection('secuenciales')">
+              <i class="fas fa-sort-numeric-up nav-icon"></i>
+              <span class="nav-label">Secuenciales</span>
+            </div>
+            <div class="nav-item" onclick="showSection('rangos-autorizados')">
+              <i class="fas fa-chart-line nav-icon"></i>
+              <span class="nav-label">Rangos SRI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- NUEVA SECCIÓN: SEGURIDAD Y ACCESO -->
+        <div class="nav-section">
+          <div class="nav-section-title" onclick="toggleSection('seguridad-acceso')">
+            <i class="fas fa-shield-alt"></i> SEGURIDAD Y ACCESO
+            <i class="fas fa-chevron-down section-arrow" id="arrow-seguridad-acceso"></i>
+          </div>
+          <div class="nav-subsection" id="section-seguridad-acceso">
+            <div class="nav-item" onclick="showSection('usuarios-operativos')">
+              <i class="fas fa-users nav-icon"></i>
+              <span class="nav-label">Usuarios Operativos</span>
+            </div>
+            <div class="nav-item" onclick="showSection('roles-operativos')">
+              <i class="fas fa-user-tag nav-icon"></i>
+              <span class="nav-label">Roles Operativos</span>
+            </div>
+            <div class="nav-item" onclick="showSection('sesiones-activas')">
+              <i class="fas fa-desktop nav-icon"></i>
+              <span class="nav-label">Sesiones Activas</span>
+              <span class="nav-badge dev">DEV</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- FOOTER DEL SIDEBAR -->
+      <div class="sidebar-footer"></div>
     </aside>
 
     <!-- MAIN CONTENT -->
@@ -175,33 +345,63 @@
         <div class="breadcrumb" id="breadcrumb">
           <span>TechCorp S.A.</span>
           <span class="breadcrumb-sep">›</span>
-          <span class="breadcrumb-current" id="current-section">Dashboard</span>
-        </div>
-        
-        <div class="search-bar">
-          <i class="fas fa-search"></i>
-          <input type="text" placeholder="Buscar clientes, facturas, productos...">
+          <span class="breadcrumb-current" id="current-section">Dashboard Empresarial</span>
         </div>
         
         <div class="header-actions">
-          <div class="date-display">
-            <i class="far fa-calendar-alt"></i>
-            <span id="current-date"></span>
+          <!-- BARRA DE BÚSQUEDA -->
+          <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Buscar en TechCorp (Ctrl+K)" id="global-search">
           </div>
           
-          <button class="header-btn" id="notifications-btn">
+          <!-- FECHA ACTUAL -->
+          <div class="date-display" id="current-date">
+            <!-- JS llena esto -->
+          </div>
+
+          <!-- NOTIFICACIONES -->
+          <div class="notifications-badge" onclick="openModal('notifications')">
             <i class="far fa-bell"></i>
-            <span class="notification-badge"></span>
-          </button>
+          </div>
           
-          <button class="logout-btn" onclick="window.location.href='../login/login.html'">
-            <i class="fas fa-sign-out-alt"></i> Salir
-          </button>
+          <!-- MENÚ DE USUARIO (SOLO PERFIL Y CONFIGURACIÓN PERSONAL) -->
+          <div class="user-menu-container">
+            <div class="user-info" onclick="toggleUserMenu()">
+              <div class="user-name">María González</div>
+              <div class="user-role">Administradora · TechCorp</div>
+            </div>
+            <div class="user-avatar" onclick="toggleUserMenu()">MG</div>
+            
+            <!-- DROPDOWN MENU (SOLO OPCIONES PERSONALES) -->
+            <div class="dropdown-menu" id="user-dropdown">
+              <div class="dropdown-item" onclick="showSection('mi-perfil')">
+                <i class="fas fa-id-card"></i> Mi Perfil
+              </div>
+              <div class="dropdown-item" onclick="showSection('preferencias')">
+                <i class="fas fa-sliders"></i> Preferencias
+              </div>
+              <div class="dropdown-item" onclick="showSection('configuracion-empresa')">
+                <i class="fas fa-building"></i> Configuración Empresa
+              </div>
+              <div class="dropdown-item" onclick="showSection('sri-config')">
+                <i class="fas fa-file-invoice-dollar"></i> Configuración SRI
+              </div>
+              <div class="dropdown-item" onclick="showSection('notificaciones-config')">
+                <i class="fas fa-bell"></i> Notificaciones
+              </div>
+              <div class="dropdown-divider"></div>
+              <div class="dropdown-item" onclick="window.location.href='../login/login.html'">
+                <i class="fas fa-sign-out-alt"></i> Salir
+              </div>
+            </div>
+          </div>
         </div>
       </header>
       
+      <!-- MAIN CONTAINER - CONTENIDO DINÁMICO -->
       <main class="main-container" id="main-container">
-        <!-- CONTENIDO DINÁMICO -->
+        <!-- El JS llena esto con renderSection() -->
       </main>
     </div>
   </div>
@@ -211,11 +411,13 @@
     <div class="modal" id="modal">
       <div class="modal-header">
         <h3 class="modal-title" id="modal-title">Título</h3>
-        <button class="modal-close" id="modal-close">
+        <button class="modal-close" id="modal-close" onclick="closeModal()">
           <i class="fas fa-times"></i>
         </button>
       </div>
-      <div class="modal-body" id="modal-body">Contenido</div>
+      <div class="modal-body" id="modal-body">
+        <!-- Contenido dinámico -->
+      </div>
       <div class="modal-footer" id="modal-footer">
         <button class="btn btn-secondary" onclick="closeModal()">Cancelar</button>
         <button class="btn btn-primary" onclick="closeModal()">Guardar</button>
@@ -224,5 +426,36 @@
   </div>
 
   <script src="inicio-admin.js"></script>
+  <script>
+    // Función de respaldo para el dropdown
+    document.addEventListener('DOMContentLoaded', function() {
+      const avatar = document.querySelector('.header .user-avatar');
+      const userInfo = document.querySelector('.header .user-info');
+      const dropdown = document.getElementById('user-dropdown');
+      
+      if (avatar) {
+        avatar.addEventListener('click', function(e) {
+          e.stopPropagation();
+          if (dropdown) dropdown.classList.toggle('open');
+        });
+      }
+      
+      if (userInfo) {
+        userInfo.addEventListener('click', function(e) {
+          e.stopPropagation();
+          if (dropdown) dropdown.classList.toggle('open');
+        });
+      }
+      
+      // Cerrar al hacer click fuera
+      document.addEventListener('click', function(e) {
+        if (dropdown && !dropdown.contains(e.target) && 
+            !avatar?.contains(e.target) && 
+            !userInfo?.contains(e.target)) {
+          dropdown.classList.remove('open');
+        }
+      });
+    });
+  </script>
 </body>
 </html>

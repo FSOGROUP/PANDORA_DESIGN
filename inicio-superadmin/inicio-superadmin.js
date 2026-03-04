@@ -33,9 +33,7 @@
   // TIPOS OPERATIVOS - Catálogo de tipos para el rol operativo
   const tiposOperativos = [
     { id: 'vendedor', nombre: 'Vendedor', descripcion: 'Gestión de ventas y clientes' },
-    { id: 'contador', nombre: 'Contador', descripcion: 'Contabilidad e impuestos' },
     { id: 'cajero', nombre: 'Cajero', descripcion: 'Facturación y cobros' },
-    { id: 'bodeguero', nombre: 'Bodeguero', descripcion: 'Gestión de inventario' },
     { id: 'recursos_humanos', nombre: 'Recursos Humanos', descripcion: 'Gestión de personal' }
   ];
 

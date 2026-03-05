@@ -4,11 +4,7 @@
   const demos = [
     { role: 'SUPER ADMIN (FSO)', icon: 'crown', email: 'admin@fso.ec', password: 'admin123' },
     { role: 'ADMIN - TechCorp', icon: 'building', email: 'admin@techcorp.ec', password: 'admin123' },
-    { role: 'OPERATIVO - TechCorp (Cajero)', icon: 'user', email: 'operativo1@techcorp.ec', password: 'operativo123' },
-    { role: 'OPERATIVO - TechCorp (RRHH)', icon: 'users', email: 'operativo2@techcorp.ec', password: 'operativo123' },
-    { role: 'OPERATIVO - TechCorp (Bodega)', icon: 'warehouse', email: 'operativo3@techcorp.ec', password: 'operativo123' },
-    { role: 'ADMIN - Consultora', icon: 'briefcase', email: 'admin@consultora.ec', password: 'admin123' },
-    { role: 'OPERATIVO - Consultora (Ventas)', icon: 'chart-line', email: 'operativo1@consultora.ec', password: 'operativo123' }
+    { role: 'OPERATIVO (Cajero/Vendedor/Bodega/RRHH)', icon: 'user', email: 'operativo@techcorp.ec', password: 'operativo123' }
   ];
 
   document.addEventListener('DOMContentLoaded', function() {
@@ -62,17 +58,19 @@
         const emailVal = email.value.trim().toLowerCase();
         const passVal = password.value;
 
+        // SUPER ADMIN
         if (emailVal === 'admin@fso.ec' && passVal === 'admin123') {
           window.location.href = '../inicio-superadmin/inicio-superadmin.html';
         } 
+        // ADMIN TechCorp
         else if (emailVal === 'admin@techcorp.ec' && passVal === 'admin123') {
           window.location.href = '../inicio-admin/inicio-admin.html';
         }
-        else if (emailVal === 'admin@consultora.ec' && passVal === 'admin123') {
-          window.location.href = '../inicio-admin/inicio-admin.html';
-        }
-        else if (emailVal.includes('operativo') && passVal === 'operativo123') {
-          window.location.href = '../inicio-operativo/inicio-operativo.html';
+        // OPERATIVO ÚNICO
+        else if (emailVal === 'operativo@techcorp.ec' && passVal === 'operativo123') {
+          // Pasamos parámetro para saber qué tipo de operativo simular
+          // Por defecto, mostramos todos los bloques
+          window.location.href = '../inicio-operativo/inicio-operativo.html?demo=completo';
         }
         else {
           error.style.display = 'flex';

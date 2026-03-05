@@ -11,93 +11,117 @@
 </head>
 <body>
   <div class="app-container">
-    <!-- SIDEBAR -->
+    <!-- SIDEBAR - MISMO ESTILO QUE SUPER ADMIN Y ADMIN -->
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-brand">
-        <div class="brand-text">
-          <div class="brand-name">PANDORA</div>
-          <div class="brand-sub">Operativo</div>
-        </div>
+        <img src="../assets/PANDORA_LOGOVF.png" alt="PANDORA" class="brand-logo">
         <div class="sidebar-collapse" id="sidebar-collapse">
           <i class="fas fa-chevron-left" id="collapse-icon"></i>
         </div>
       </div>
       
-      <div class="company-info" id="company-info">
-        <div class="company-label">
-          <i class="fas fa-building"></i> Mi Empresa
-        </div>
-        <div class="company-name" id="active-company">TechCorp S.A.</div>
-        <div class="company-ruc">RUC: 1791234567001</div>
-      </div>
-      
-      <div class="role-chip" id="role-chip">
-        <span class="role-icon" id="role-icon">👤</span>
-        <span class="role-name" id="role-name">OPERATIVO</span>
-      </div>
-      
       <nav class="sidebar-nav" id="sidebar-nav">
-        <!-- MI TRABAJO -->
-        <div class="nav-section-title">👤 MI TRABAJO</div>
-        <div class="nav-item active" onclick="showSection('dashboard')">
-          <i class="fas fa-chart-pie nav-icon"></i>
-          <span class="nav-label">Mi Dashboard</span>
-        </div>
-        <div class="nav-item" onclick="showSection('pos')">
-          <i class="fas fa-cash-register nav-icon"></i>
-          <span class="nav-label">Abrir POS</span>
-        </div>
-        <div class="nav-item" onclick="showSection('ventas')">
-          <i class="fas fa-cart-shopping nav-icon"></i>
-          <span class="nav-label">Registrar Venta</span>
-        </div>
-        <div class="nav-item" onclick="showSection('clientes')">
-          <i class="fas fa-user nav-icon"></i>
-          <span class="nav-label">Clientes</span>
-        </div>
-        <div class="nav-item" onclick="showSection('stock-rapido')">
-          <i class="fas fa-cubes nav-icon"></i>
-          <span class="nav-label">Consultar Stock</span>
-        </div>
-        <div class="nav-item" onclick="showSection('mis-ventas')">
-          <i class="fas fa-receipt nav-icon"></i>
-          <span class="nav-label">Mis Ventas</span>
-          <span class="nav-badge">12</span>
-        </div>
-        <div class="nav-item" onclick="showSection('cierre-caja')">
-          <i class="fas fa-lock nav-icon"></i>
-          <span class="nav-label">Cierre de Caja</span>
-        </div>
-        <div class="nav-item" onclick="showSection('mi-perfil')">
-          <i class="fas fa-id-card nav-icon"></i>
-          <span class="nav-label">Mi Perfil</span>
-        </div>
-
-        <!-- ACCESOS RÁPIDOS (según perfil) -->
-        <div class="nav-section-title">⚡ ACCESOS RÁPIDOS</div>
-        <div class="nav-item" onclick="showSection('caja-diaria')">
-          <i class="fas fa-cash-register nav-icon"></i>
-          <span class="nav-label">Caja Diaria</span>
-        </div>
-        <div class="nav-item" onclick="showSection('inventario-rapido')">
-          <i class="fas fa-boxes nav-icon"></i>
-          <span class="nav-label">Inventario Rápido</span>
-        </div>
-        <div class="nav-item" onclick="showSection('reportes-diarios')">
-          <i class="fas fa-chart-line nav-icon"></i>
-          <span class="nav-label">Reportes del Día</span>
-        </div>
-      </nav>
-      
-      <div class="sidebar-footer">
-        <div class="user-info" onclick="showSection('mi-perfil')">
-          <div class="user-avatar" id="user-avatar">CC</div>
-          <div class="user-details">
-            <div class="user-name" id="user-name">Carlos Cajero</div>
-            <div class="user-role" id="user-role">TechCorp · Cajero</div>
+        <!-- SECCIÓN: MI TRABAJO -->
+        <div class="nav-section">
+          <div class="nav-section-title" onclick="toggleSection('mi-trabajo')">
+            <i class="fas fa-briefcase"></i> MI TRABAJO
+            <i class="fas fa-chevron-down section-arrow" id="arrow-mi-trabajo"></i>
+          </div>
+          <div class="nav-subsection" id="section-mi-trabajo">
+            <!-- DASHBOARD - TODOS -->
+            <div class="nav-item active" onclick="showSection('dashboard')">
+              <i class="fas fa-chart-pie nav-icon"></i>
+              <span class="nav-label">Mi Dashboard</span>
+              <span class="permiso-badge permiso-todos">TODOS</span>
+            </div>
+            
+            <!-- PUNTO DE VENTA - CAJERO/VENDEDOR -->
+            <div class="nav-item" onclick="showSection('punto-venta')">
+              <i class="fas fa-cash-register nav-icon"></i>
+              <span class="nav-label">Punto de Venta</span>
+              <span class="permiso-badge permiso-cajero">CAJERO</span>
+              <span class="permiso-badge permiso-vendedor">VENDEDOR</span>
+            </div>
+            
+            <!-- MIS VENTAS - CAJERO/VENDEDOR -->
+            <div class="nav-item" onclick="showSection('mis-ventas')">
+              <i class="fas fa-receipt nav-icon"></i>
+              <span class="nav-label">Mis Ventas</span>
+              <span class="nav-badge">12</span>
+              <span class="permiso-badge permiso-cajero">CAJERO</span>
+              <span class="permiso-badge permiso-vendedor">VENDEDOR</span>
+            </div>
+            
+            <!-- COBROS - SOLO CAJERO -->
+            <div class="nav-item" onclick="showSection('cobros')">
+              <i class="fas fa-hand-holding-dollar nav-icon"></i>
+              <span class="nav-label">Cobros</span>
+              <span class="permiso-badge permiso-cajero">CAJERO</span>
+            </div>
+            
+            <!-- CIERRE DE CAJA - SOLO CAJERO -->
+            <div class="nav-item" onclick="showSection('cierre-caja')">
+              <i class="fas fa-lock nav-icon"></i>
+              <span class="nav-label">Cierre de Caja</span>
+              <span class="permiso-badge permiso-cajero">CAJERO</span>
+            </div>
           </div>
         </div>
-      </div>
+
+        <!-- SECCIÓN: INVENTARIO (SOLO BODEGUERO) -->
+        <div class="nav-section">
+          <div class="nav-section-title" onclick="toggleSection('inventario')">
+            <i class="fas fa-warehouse"></i> INVENTARIO
+            <i class="fas fa-chevron-down section-arrow" id="arrow-inventario"></i>
+          </div>
+          <div class="nav-subsection" id="section-inventario">
+            <div class="nav-item" onclick="showSection('consulta-stock')">
+              <i class="fas fa-cubes nav-icon"></i>
+              <span class="nav-label">Consulta de Stock</span>
+              <span class="permiso-badge permiso-bodeguero">BODEGUERO</span>
+            </div>
+            <div class="nav-item" onclick="showSection('entradas-salidas')">
+              <i class="fas fa-arrows-spin nav-icon"></i>
+              <span class="nav-label">Entradas/Salidas</span>
+              <span class="permiso-badge permiso-bodeguero">BODEGUERO</span>
+            </div>
+            <div class="nav-item" onclick="showSection('inventario-rapido')">
+              <i class="fas fa-boxes nav-icon"></i>
+              <span class="nav-label">Inventario Rápido</span>
+              <span class="permiso-badge permiso-bodeguero">BODEGUERO</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECCIÓN: RECURSOS HUMANOS (SOLO RRHH) -->
+        <div class="nav-section">
+          <div class="nav-section-title" onclick="toggleSection('rrhh')">
+            <i class="fas fa-users"></i> RECURSOS HUMANOS
+            <i class="fas fa-chevron-down section-arrow" id="arrow-rrhh"></i>
+          </div>
+          <div class="nav-subsection" id="section-rrhh">
+            <div class="nav-item" onclick="showSection('empleados')">
+              <i class="fas fa-id-card nav-icon"></i>
+              <span class="nav-label">Empleados</span>
+              <span class="permiso-badge permiso-rrhh">RRHH</span>
+            </div>
+            <div class="nav-item" onclick="showSection('asistencias')">
+              <i class="fas fa-clock nav-icon"></i>
+              <span class="nav-label">Asistencias</span>
+              <span class="permiso-badge permiso-rrhh">RRHH</span>
+            </div>
+            <div class="nav-item" onclick="showSection('nominas')">
+              <i class="fas fa-money-bill nav-icon"></i>
+              <span class="nav-label">Nóminas</span>
+              <span class="permiso-badge permiso-rrhh">RRHH</span>
+              <span class="nav-badge dev">DEV</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- FOOTER DEL SIDEBAR - VACÍO (LA INFO VA EN HEADER) -->
+      <div class="sidebar-footer"></div>
     </aside>
 
     <!-- MAIN CONTENT -->
@@ -109,39 +133,48 @@
           <span class="breadcrumb-current" id="current-section">Mi Dashboard</span>
         </div>
         
-        <div class="search-bar">
-          <i class="fas fa-search"></i>
-          <input type="text" placeholder="Buscar clientes, productos...">
-        </div>
-        
         <div class="header-actions">
-          <div class="date-display">
-            <i class="far fa-calendar-alt"></i>
-            <span id="current-date"></span>
+          <!-- BARRA DE BÚSQUEDA -->
+          <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Buscar productos (Ctrl+K)" id="global-search">
           </div>
           
-          <button class="header-btn" id="notifications-btn">
+          <!-- FECHA ACTUAL -->
+          <div class="date-display" id="current-date"></div>
+
+          <!-- NOTIFICACIONES -->
+          <div class="notifications-badge" onclick="openModal('notifications')">
             <i class="far fa-bell"></i>
-            <span class="notification-badge"></span>
-          </button>
+          </div>
           
-          <div class="user-profile" onclick="showSection('mi-perfil')">
-            <div class="profile-avatar">CC</div>
-            <div class="profile-info">
-              <div class="profile-name">Carlos Cajero</div>
-              <div class="profile-role">Cajero</div>
+          <!-- MENÚ DE USUARIO (AQUÍ VA MI PERFIL Y PREFERENCIAS) -->
+          <div class="user-menu-container">
+            <div class="user-info" onclick="toggleUserMenu()">
+              <div class="user-name">Carlos Operativo</div>
+              <div class="user-role">TechCorp · Operativo</div>
+            </div>
+            <div class="user-avatar" onclick="toggleUserMenu()">CO</div>
+            
+            <!-- DROPDOWN MENU - SOLO OPCIONES PERSONALES -->
+            <div class="dropdown-menu" id="user-dropdown">
+              <div class="dropdown-item" onclick="showSection('mi-perfil')">
+                <i class="fas fa-id-card"></i> Mi Perfil
+              </div>
+              <div class="dropdown-item" onclick="showSection('preferencias')">
+                <i class="fas fa-sliders"></i> Preferencias
+              </div>
+              <div class="dropdown-divider"></div>
+              <div class="dropdown-item" onclick="window.location.href='../login/login.html'">
+                <i class="fas fa-sign-out-alt"></i> Salir
+              </div>
             </div>
           </div>
-          
-          <button class="logout-btn" onclick="window.location.href='../login/login.html'">
-            <i class="fas fa-sign-out-alt"></i> Salir
-          </button>
         </div>
       </header>
       
-      <main class="main-container" id="main-container">
-        <!-- CONTENIDO DINÁMICO -->
-      </main>
+      <!-- MAIN CONTAINER - CONTENIDO DINÁMICO -->
+      <main class="main-container" id="main-container"></main>
     </div>
   </div>
 
@@ -150,11 +183,11 @@
     <div class="modal" id="modal">
       <div class="modal-header">
         <h3 class="modal-title" id="modal-title">Título</h3>
-        <button class="modal-close" id="modal-close">
+        <button class="modal-close" id="modal-close" onclick="closeModal()">
           <i class="fas fa-times"></i>
         </button>
       </div>
-      <div class="modal-body" id="modal-body">Contenido</div>
+      <div class="modal-body" id="modal-body"></div>
       <div class="modal-footer" id="modal-footer">
         <button class="btn btn-secondary" onclick="closeModal()">Cancelar</button>
         <button class="btn btn-primary" onclick="closeModal()">Guardar</button>
@@ -163,5 +196,6 @@
   </div>
 
   <script src="inicio-operativo.js"></script>
+
 </body>
 </html>
